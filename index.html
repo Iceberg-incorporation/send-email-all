@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <style>
-        body {
+        .root {
             justify-content: center;
             display: flex;
             position: static;
@@ -19,19 +19,39 @@
         .img {
             width: 960px;
             height: 3290px;
-            background: url("Hello\ Teacher.png");
+            background: url("https://firebasestorage.googleapis.com/v0/b/blackboard-th.appspot.com/o/images%2Fmail%2FHello%20Teacher.png?alt=media&token=25f176f0-802a-46c1-a938-3303129e367e");
             background-repeat: no-repeat;
             background-size: 960px 3290px;
             background-position: center;
         }
 
-        .view-in-browser {
-            padding: 14px 85px;
-            top: 7px;
-            right: 74px;
-            float: right;
+        .layout-btn-0 {
+            padding: 18px 85px;
+            margin: 4px 75px 4px 235px;
             background: #f0f8ff00;
-            position: relative;
+            border: 0px;
+        }
+
+        .layout-btn-1 {
+            display: flex;
+            padding: 20px 126px;
+            margin: 55px 93px 120px 135px;
+            background: #f0f8ff00;
+            border: 0px;
+        }
+
+        .layout-btn-2 {
+            display: flex;
+            padding: 20px 126px;
+            margin: 55px 135px 120px 95px;
+            background: #f0f8ff00;
+            border: 0px;
+        }
+
+        .layout-btn-3 {
+            height: 100%;
+            width: 100%;
+            background: #f0f8ff00;
             border: 0px;
         }
 
@@ -40,7 +60,7 @@
             width: 100%;
             justify-content: center;
             position: relative;
-            top: 2221px;
+            top: 2218px;
             height: 42px;
         }
 
@@ -63,23 +83,96 @@
             background: #f0f8ff00;
             border: 0px;
         }
+
+        .layout-0 {
+            height: 43px;
+            display: flex;
+        }
+
+        .layout-1 {
+            height: 2156px;
+        }
+
+        .layout-2 {
+            height: 215px;
+            display: flex;
+        }
+
+        .layout-3 {
+            height: 413px;
+        }
+
+        .layout-item-0 {
+            width: 100%;
+            height: 100%;
+        }
+
+        .layout-item-1 {
+            width: 100%;
+            height: 100%;
+        }
+
+        .layout-item-2 {
+            width: 100%;
+            height: 100%;
+            padding: 25px 79px;
+        }
+
+        .layout-item-3 {
+            width: 100%;
+            height: 100%;
+        }
+
+        .layout-item-2-0 {
+            width: 100%;
+            height: 331px;
+        }
+
+        .layout-item-2-1 {
+            width: 100%;
+            height: 32px;
+        }
     </style>
     <title>Document</title>
 </head>
 
 <body>
     <div class="img">
-        <button class="view-in-browser"></button>
-        <div class="layout-regis">
-            <div class="layout">
-                <button class="btn-regis"></button>
-            </div>
-            <div class="layout">
-                <button class="btn-login"></button>
+        <div class="layout-0">
+            <div class="layout-item-0"></div>
+            <div class="layout-item-0">
+                <button class="layout-btn-0"></button>
             </div>
         </div>
-    </div>
+        <div class="layout-1">
 
+        </div>
+        <div class="layout-2">
+            <div class="layout-item-1">
+                <a class="layout-btn-1" type="button" href="https://www.blackboardapp.co/login"></a>
+            </div>
+            <div class="layout-item-1">
+                <a class="layout-btn-2" type="button" href="https://www.blackboardapp.co" ></a>
+            </div>
+        </div>
+        <div class="layout-3">
+            <div class="layout-item-2">
+                <div class="layout-item-2-0">
+                </div>
+                <div class="layout-item-2-1">
+                    <button class="layout-btn-3"></button>
+                </div>
+            </div>
+
+        </div>
+        <script>
+            function toLogin() {
+                window.location.replace("https://www.blackboardapp.co/login")
+            }
+            function toHome() {
+                window.location.replace("https://www.blackboardapp.co")
+            }
+        </script>
 </body>
 
 </html>

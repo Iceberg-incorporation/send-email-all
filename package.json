@@ -1,0 +1,25 @@
+{
+  "name": "html.mail.hello-teacher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "send_mail": "node send.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Iceberg-incorporation/html.mail.hello-teacher.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Iceberg-incorporation/html.mail.hello-teacher/issues"
+  },
+  "homepage": "https://github.com/Iceberg-incorporation/html.mail.hello-teacher#readme",
+  "dependencies": {
+    "blackboard-send-mail": "^1.0.7"
+  }
+}
