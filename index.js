@@ -2,7 +2,8 @@ const fs = require('fs');
 const bsm = require('blackboard-send-mail')
 const key = require('./blackboard-app-296106-a6a06a8dba96.json')
 
-const senderEmailAddress = "contact@blackboardapp.co";
+const mail_from = "contact@blackboardapp.co";
+const mail_subject = "WELCOME TO BLACKBOARD APP"
 
 bsm.connect({
     host: 'smtp.gmail.com',
@@ -10,7 +11,7 @@ bsm.connect({
     secure: true,
     auth: {
         type: 'OAuth2',
-        user: senderEmailAddress,
+        user: mail_from,
         serviceClient: key.client_id,
         privateKey: key.private_key
     }
@@ -20,8 +21,12 @@ bsm.connect({
 
 function writeAsync(mail) {
 
-    const _mail = `${mail}`
-    fs.writeFileSync(`send_mail_history.txt`, _mail, 'utf-8', function (err) {
+
+    fs.writeFileSync(`send_mail_history.txt`, mail + "\n", {
+        encoding: "utf8",
+        flag: "a+",
+        mode: 0o666
+    }, function (err) {
         if (err) throw err;
         console.log('filelistAsync complete');
     });
@@ -33,9 +38,9 @@ function Send(mail) {
 
 
     const data = {
-        from: senderEmailAddress,
+        from: `"BlackboardApp" <${mail_from}>`,
         to: mail,
-        subject: "ทดสอบ 2",
+        subject: mail_subject,
         html: `${html}`
     }
 
