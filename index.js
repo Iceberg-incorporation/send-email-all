@@ -1,7 +1,8 @@
 const fs = require('fs');
 const bsm = require('blackboard-send-mail')
 const key = require('./blackboard-app-296106-a6a06a8dba96.json')
-
+const XTJ = require('./libs/xlsxToJson');
+const JTX = require('./libs/jsonToXlsx');
 const mail_from = "contact@blackboardapp.co";
 const mail_subject = "WELCOME TO BLACKBOARD APP"
 
@@ -12,6 +13,7 @@ bsm.connect({
     auth: {
         type: 'OAuth2',
         user: mail_from,
+        pass: "iceberg2563",
         serviceClient: key.client_id,
         privateKey: key.private_key
     }
@@ -19,34 +21,28 @@ bsm.connect({
     console.log(_data);
 })
 
-function writeAsync(mail) {
 
+function Send(mail, xlsx) {
 
-    fs.writeFileSync(`send_mail_history.txt`, mail + "\n", {
-        encoding: "utf8",
-        flag: "a+",
-        mode: 0o666
-    }, function (err) {
-        if (err) throw err;
-        console.log('filelistAsync complete');
-    });
-}
-
-function Send(mail) {
-
-    const html = fs.readFileSync('index.html', 'utf-8');
+    const __html = fs.readFileSync('index.html', 'utf-8');
 
 
     const data = {
-        from: `"BlackboardApp" <${mail_from}>`,
+        from: `"Blackboard App" <${mail_from}>`,
         to: mail,
         subject: mail_subject,
-        html: `${html}`
+        html: __html
     }
 
     bsm.sendMail(data).then(_data => {
-        console.log(_data);
-        writeAsync(mail)
+
+        const new_data = [];
+        xlsx.data.map(_data => {
+            new_data.push({ ..._data, ['สถานะ']: 1 })
+        })
+
+        JTX('send_mail_history.xlsx', xlsx.headers, new_data)
+
         console.log('ส่งอีเมลสำเร็จ', _data);
         if (_data) {
 
@@ -54,21 +50,18 @@ function Send(mail) {
     }).catch(err => {
         console.log('ส่งอีเมลผิดพลาด', err);
     })
-}
 
-function readAsync() {
-    const data = fs.readFileSync('send_mail.txt', 'utf-8');
-    var j = data.split('\n')
-    // console.log(j);
-    return j
+
+
 
 }
 
-const all_mail = readAsync();
 
-all_mail.map(_mail => {
-    // console.log(_mail);
-    Send(_mail)
+XTJ('send_mail.xlsx').then(all_mail => {
+    all_mail.data.map(_mail => {
+        Send(_mail['อีเมล'], all_mail)
+    })
 })
+
 
 

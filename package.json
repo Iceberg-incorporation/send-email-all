@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "send_mail": "node send.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Iceberg-incorporation/html.mail.hello-teacher#readme",
   "dependencies": {
-    "blackboard-send-mail": "^1.0.7"
+    "blackboard-send-mail": "^1.0.7",
+    "xlsx": "^0.16.9"
   }
 }
