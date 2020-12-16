@@ -7,19 +7,46 @@ const mail_from = "contact@blackboardapp.co";
 const mail_subject = "WELCOME TO BLACKBOARD APP"
 
 bsm.connect({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
+    host: 'win02-mailpro.zth.netdesignhost.com',
+    secure: false,
     auth: {
-        type: 'OAuth2',
-        user: mail_from,
-        pass: "iceberg2563",
-        serviceClient: key.client_id,
-        privateKey: key.private_key
+        user: "admin@iceberg-th.com",
+        pass: "1fkhr8@CC"
     }
 }).then(_data => {
     console.log(_data);
 })
+
+// bsm.connect({
+//     service: 'smtp.gmail.com',
+//     port: 465,
+//     secure: true,
+//     auth: {
+//         type: 'OAuth2',
+//         user: mail_from,
+//         pass: "iceberg2563",
+//         serviceClient: key.client_id,
+//         privateKey: key.private_key
+//     }
+// }).then(_data => {
+//     console.log(_data);
+// })
+
+// bsm.connect({
+//     service: 'gmail',
+//     // port: 465,
+//     secure: true,
+//     auth: {
+//         type: 'OAuth2',
+//         user: mail_from,
+//         pass: "iceberg2563",
+//         serviceClient: key.client_id,
+//         privateKey: key.private_key
+//     }
+// }).then(_data => {
+//     console.log(_data);
+// })
+
 
 
 function Send(mail, xlsx) {
