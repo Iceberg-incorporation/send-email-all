@@ -21,6 +21,7 @@
   "homepage": "https://github.com/Iceberg-incorporation/html.mail.hello-teacher#readme",
   "dependencies": {
     "blackboard-send-mail": "^1.0.7",
+    "dotenv": "^8.2.0",
     "xlsx": "^0.16.9"
   }
 }
