@@ -17,22 +17,21 @@ bsm.connect(config).then(_data => {
 
 
 function Send(mail_to, xlsx) {
+    return new Promise((resolve, reject) => {
+        const __html = fs.readFileSync(`templates/${mail.html_file_name}`, 'utf-8');
 
-    const __html = fs.readFileSync(`templates/${mail.html_file_name}`, 'utf-8');
 
+        const data = {
+            from: mail.from,
+            to: mail_to,
+            subject: mail.subject,
+            html: __html,
 
-    const data = {
-        from: mail.from,
-        to: mail_to,
-        subject: mail.subject,
-        html: __html,
+        }
 
-    }
-
-    bsm.sendMail(data).then(_data => {
         XTJ(__dirname + '/' + 'history' + '/' + 'main.xlsx').then(_history => {
             const new_data = [];
-            
+
             xlsx.data.map((_data, key) => {
                 new_data.push({
                     ..._data,
@@ -43,23 +42,30 @@ function Send(mail_to, xlsx) {
             });
 
             JTX(`output/${dateTH}.xlsx`, xlsx.headers, new_data).then(_data => {
-                console.log(`output/${dateTH}.xlsx`, 'success');
+                // console.log(`output/${dateTH}.xlsx`, 'success');
                 JTX(`history/main.xlsx`, xlsx.headers, _history.data.concat(new_data)).then(_succes => {
-                    console.log(`history/main.xlsx`, 'success');
+                    // console.log(`history/main.xlsx`, 'success');
                 }).catch(err => {
-                    console.log(`history/main.xlsx`, 'error', err);
+                    // console.log(`history/main.xlsx`, 'error', err);
                 })
             }).catch(err => {
-                console.log(`output/${dateTH}.xlsx`, 'error', err);
+                // console.log(`output/${dateTH}.xlsx`, 'error', err);
             });
+
+
         })
 
-        console.log('ส่งอีเมลสำเร็จ', _data);
-        if (_data) {
+        bsm.sendMail(data).then(_data => {
 
-        }
-    }).catch(err => {
-        console.log('ส่งอีเมลผิดพลาด', err);
+            // console.log('ส่งอีเมลสำเร็จ', _data);
+            // if (_data) {
+            resolve({ message: "ส่งอีเมลสำเร็จ", mail: _data.accepted })
+            // }
+        }).catch(err => {
+            reject({ message: "ส่งอีเมลผิดพลาด", error: err })
+            // console.log('ส่งอีเมลผิดพลาด', err);
+        })
+
     })
 }
 
@@ -69,7 +75,11 @@ function Start() {
     UEH(__dirname + '/' + 'history' + '/' + 'main.xlsx', __dirname + '/' + 'docs').then(unique_email_history => {
         unique_email_history.map(_data => {
             // console.log(_data['อีเมล']);
-            Send(_data['อีเมล'], { headers: headers, data: unique_email_history })
+            Send(_data['อีเมล'], { headers: headers, data: unique_email_history }).then(_success => {
+                console.log(_success.message, _success.mail);
+            }).catch(err => {
+                console.log(err.message, err.error);
+            })
         })
     })
 }

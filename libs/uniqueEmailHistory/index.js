@@ -23,7 +23,7 @@ function uniqueEmailHistory(file_history,dir_docs) {
                         if (new_mail_arr.indexOf(main_unique_email) === -1) {
                             new_data_arr.push({ ..._u_e, ['ลำดับ']: index_u_e + 1, })
                             resolve(new_data_arr)
-                            console.log(`new_data_arr:`, new_data_arr);
+                            // console.log(`new_data_arr:`, new_data_arr);
                         }
 
                     })
@@ -47,7 +47,7 @@ function uniqueEmailHistory(file_history,dir_docs) {
                                 if (new_mail_arr.indexOf(main_unique_email) === -1) {
                                     new_data_arr.push({ ..._u_e, ['ลำดับ']: index_u_e + 1, })
                                     resolve(new_data_arr)
-                                    console.log(`new_data_arr:`, new_data_arr);
+                                    // console.log(`new_data_arr:`, new_data_arr);
                                 }
     
                             })
