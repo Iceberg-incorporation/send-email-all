@@ -6,6 +6,11 @@
 git clone https://github.com/Iceberg-incorporation/send-email-all.git
 
 cd send-email-all
+
+chmod 700 install.macOS.bash
+chmod 700 start.macOS.bash
+chmod 700 install.linux.bash
+chmod 700 start.linux.bash
 ```
 
 ### ติดตั้งแพคเกต
