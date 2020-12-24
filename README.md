@@ -1,6 +1,8 @@
 # send-email-all
 
 ## วิธีติดตั้ง
+>หมายเหตุ ติดตั้ง nodejs ก่อน
+
 ### clone git
 ``` shell
 git clone https://github.com/Iceberg-incorporation/send-email-all.git
