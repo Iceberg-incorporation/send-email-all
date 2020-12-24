@@ -25,4 +25,4 @@ ABSDIR=$(dirname $ABSPATH)
 
 cd "$BASEDIR"
 
-npm start
+npm i
