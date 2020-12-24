@@ -9,7 +9,7 @@ const config = {
     secure: process.env.SECURE,
     auth: {
         type: process.env.AUTH_TYPE,
-        user: process.env.AUTH_USER,
+        user: process.env.AUTH_USRE,
         serviceClient: key.client_id,
         privateKey: key.private_key
     }
