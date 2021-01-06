@@ -58,7 +58,7 @@ function Send(mail_to, xlsx) {
 
                 if (new_history.length === data_history.length) {
                     JTX(`history/main.xlsx`, xlsx.headers, new_history).then(_succes => {
-                        // console.log(`history/main.xlsx`, 'success');
+                        console.log(`history/main.xlsx`, 'success');
                     }).catch(err => {
                         // console.log(`history/main.xlsx`, 'error', err);
                     })
@@ -72,16 +72,16 @@ function Send(mail_to, xlsx) {
 
         })
 
-        // bsm.sendMail(data).then(_data => {
+        bsm.sendMail(data).then(_data => {
 
-        //     // console.log('ส่งอีเมลสำเร็จ', _data);
-        //     // if (_data) {
-        //     resolve({ message: "ส่งอีเมลสำเร็จ", mail: _data.accepted })
-        //     // }
-        // }).catch(err => {
-        //     reject({ message: "ส่งอีเมลผิดพลาด", error: err })
-        //     // console.log('ส่งอีเมลผิดพลาด', err);
-        // })
+            // console.log('ส่งอีเมลสำเร็จ', _data);
+            // if (_data) {
+            resolve({ message: "ส่งอีเมลสำเร็จ", mail: _data.accepted })
+            // }
+        }).catch(err => {
+            reject({ message: "ส่งอีเมลผิดพลาด", error: err })
+            // console.log('ส่งอีเมลผิดพลาด', err);
+        })
 
     })
 }

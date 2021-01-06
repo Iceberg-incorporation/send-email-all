@@ -11,7 +11,7 @@ const fs = require('fs');
             files.forEach(file => {
                 _type_file = file.slice(file.length - 5, file.length);
                 _name_file = file.slice(0, -5);
-                // console.log(file, _type_file.startsWith('.xlsx'), _name_file);
+                console.log(file, _type_file.startsWith('.xlsx'), _name_file);
     
                 if (_type_file.startsWith('.xlsx')) {
                     _file_all.push(`${_name_file}${_type_file}`)
