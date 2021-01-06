@@ -1,10 +1,12 @@
 # send-email-all
 
 ## วิธีติดตั้ง
->หมายเหตุ ติดตั้ง nodejs ก่อน
+
+> หมายเหตุ ติดตั้ง nodejs ก่อน
 
 ### clone git
-``` shell
+
+```shell
 git clone https://github.com/Iceberg-incorporation/send-email-all.git
 
 cd send-email-all
@@ -23,24 +25,29 @@ chmod 700 start.linux.bash
 
 > สำหรับ Windows ให้เปิดไฟล์ชื่อ ```install.windows.bash```
 
-### วิธีใช้งาน
+## วิธีใช้งาน
 
->นำไฟล์ excel เข้าไปใน folder ```docs`` 
->หมายเหตุ อ่านได้เฉพาะ ไฟล์สกุล xlsx
+> นำไฟล์ excel เข้าไปใน folder ```docs```
+> หมายเหตุ อ่านได้เฉพาะ ไฟล์สกุล xlsx
 
 ระบบปฏิบัติการ Mac OS
->จากนั้น  ให้เปิดไฟล์ชื่อ ```start.macOS.bash``` สำหรับ 
+
+> จากนั้น  ให้เปิดไฟล์ชื่อ ```start.macOS.bash``` สำหรับ
 
 ระบบปฏิบัติการ Linux
->จากนั้น  ให้เปิดไฟล์ชื่อ ```start.linux.bash``` สำหรับ 
+
+> จากนั้น  ให้เปิดไฟล์ชื่อ ```start.linux.bash``` สำหรับ
 
 ระบบปฏิบัติการ Windows
->จากนั้น  ให้เปิดไฟล์ชื่อ ```start.windows.bash``` สำหรับ 
+
+> จากนั้น  ให้เปิดไฟล์ชื่อ ```start.windows.bash``` สำหรับ
 
 ### วิธีตั้งค่า หัวตาราง excel
->ให้ไปแก้ไขไฟล์ xlsx.headers.json
+
+> ให้ไปแก้ไขไฟล์ xlsx.headers.json
 
 ตัวอย่าง ไฟล์
+
 ```json
 {
     "A": "ลำดับ",
@@ -53,9 +60,11 @@ chmod 700 start.linux.bash
 ```
 
 ### วิธีตั้งค่า การส่ง email
->ให้ไปแก้ไขไฟล์ mail.setting.js
 
-ตัวอย่าง ไฟล์ 
+> ให้ไปแก้ไขไฟล์ mail.setting.js
+
+ตัวอย่าง ไฟล์
+
 ```javascript
 /**
  * วิธีใช้งาน
